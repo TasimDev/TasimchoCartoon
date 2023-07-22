@@ -11,6 +11,8 @@ body {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: rgb(227, 210, 228);
+  background: linear-gradient(25deg, rgb(227, 210, 228) 1%, rgb(251, 222, 180) 49%, rgb(211, 221, 208) 79%);
 }
 
 #cartoon {
@@ -149,7 +151,7 @@ body {
   left: 50%;
   transform: translate(-50%);
   z-index: -1;
-  border-bottom: 2px solid #E5734E;
+  border-bottom: 16px solid #DAA190;
   border-radius: 30%;
 }
 #cartoon .hair {
@@ -165,9 +167,8 @@ body {
 #cartoon .t-shirt {
   width: 100%;
   height: 80%;
-  background: rgb(233, 233, 233);
+  background: #F7B857;
   z-index: -2;
   border-radius: 50%;
   bottom: -70%;
-  border-top: 8px solid #d3d3d3;
 }/*# sourceMappingURL=index.css.map */
