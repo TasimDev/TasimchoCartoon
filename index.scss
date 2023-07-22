@@ -15,6 +15,47 @@ body {
     background: linear-gradient(25deg, rgba(227, 210, 228, 1) 1%, rgba(251, 222, 180, 1) 49%, rgba(211, 221, 208, 1) 79%);
 }
 
+@keyframes move {
+    0% {
+        transform: none;
+    }
+
+    20% {
+        transform: translateX(6px) translateY(10px) scale(0.95);
+    }
+
+    25%,
+    44% {
+        transform: none;
+    }
+
+    50%,
+    60% {
+        transform: translateX(10px) translateY(-40px) scale(0.95);
+    }
+
+    66%,
+    100% {
+        transform: none;
+    }
+}
+
+@keyframes blink {
+
+    90% {
+        transform: none;
+        animation-timing-function: ease-in;
+    }
+
+    93% {
+        transform: translateY(15px) scaleY(0);
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+    }
+}
+
 #cartoon {
     position: absolute;
     width: 80vmin;
@@ -104,42 +145,80 @@ body {
 
         }
 
-        .eye {
+        .eye-left,
+        .eye-right {
+
             width: 30%;
             height: 30%;
             background: linear-gradient(0deg, rgba(249, 250, 245, 1) 0%, rgba(249, 251, 251, 1) 64%);
             border-radius: 50%;
-            top: 30%;
-            left: 10%;
-            transform: rotate(-10deg);
             border-top: 0.8vmin solid rgb(111, 70, 62);
             border-bottom: 2px solid#E5734E;
+            animation: blink 2.4s infinite;
+            animation-delay: 8s;
 
             .pupil {
-                bottom: 10%;
-                right: 16%;
+
                 width: 6vmin;
                 height: 8vmin;
                 background: rgb(6, 0, 6);
                 border-radius: 50%;
                 border: 0.6vmin solid var(--eye-color);
+                animation: move 5s ease-out infinite;
 
                 .white {
                     width: 1vmin;
                     height: 1vmin;
                     background: #fff;
                     border-radius: 50%;
-                    top: 18%;
-                    right: 25%;
+
                 }
+            }
+
+        }
+
+        .eye-left {
+            top: 30%;
+            left: 10%;
+
+            .pupil {
+                bottom: 10%;
+                right: 16%;
+            }
+
+            .white {
+                top: 18%;
+                right: 25%;
             }
         }
 
-        .eye+.eye {
-            left: auto;
+        .eye-right {
+            top: 30%;
             right: 10%;
-            transform: scaleX(-1) rotate(-10deg);
+
+            .pupil {
+                bottom: 10%;
+                left: 16%;
+            }
+
+            .white {
+                top: 18%;
+                left: 25%;
+            }
         }
+
+        // .eye+.eye {
+        //     left: auto;
+        //     right: 10%;
+        //     transform: scaleX(-1) rotate(-10deg);
+        //     animation: blink 2.4s infinite;
+        //     animation-delay: 8s;
+        // }
+
+
+
+
+
 
         .nose {
             width: 20%;
@@ -165,7 +244,7 @@ body {
             right: 8%;
         }
 
-      
+
     }
 
     //NECK

@@ -15,6 +15,35 @@ body {
   background: linear-gradient(25deg, rgb(227, 210, 228) 1%, rgb(251, 222, 180) 49%, rgb(211, 221, 208) 79%);
 }
 
+@keyframes move {
+  0% {
+    transform: none;
+  }
+  20% {
+    transform: translateX(6px) translateY(10px) scale(0.95);
+  }
+  25%, 44% {
+    transform: none;
+  }
+  50%, 60% {
+    transform: translateX(10px) translateY(-40px) scale(0.95);
+  }
+  66%, 100% {
+    transform: none;
+  }
+}
+@keyframes blink {
+  90% {
+    transform: none;
+    animation-timing-function: ease-in;
+  }
+  93% {
+    transform: translateY(15px) scaleY(0);
+  }
+  100% {
+    animation-timing-function: ease-out;
+  }
+}
 #cartoon {
   position: absolute;
   width: 80vmin;
@@ -89,38 +118,56 @@ body {
   border-top-left-radius: 100%;
   border-bottom-right-radius: 100%;
 }
-#cartoon .face .eye {
+#cartoon .face .eye-left,
+#cartoon .face .eye-right {
   width: 30%;
   height: 30%;
   background: linear-gradient(0deg, rgb(249, 250, 245) 0%, rgb(249, 251, 251) 64%);
   border-radius: 50%;
-  top: 30%;
-  left: 10%;
-  transform: rotate(-10deg);
   border-top: 0.8vmin solid rgb(111, 70, 62);
   border-bottom: 2px solid #E5734E;
+  animation: blink 2.4s infinite;
+  animation-delay: 8s;
 }
-#cartoon .face .eye .pupil {
-  bottom: 10%;
-  right: 16%;
+#cartoon .face .eye-left .pupil,
+#cartoon .face .eye-right .pupil {
   width: 6vmin;
   height: 8vmin;
   background: rgb(6, 0, 6);
   border-radius: 50%;
   border: 0.6vmin solid var(--eye-color);
+  animation: move 5s ease-out infinite;
 }
-#cartoon .face .eye .pupil .white {
+#cartoon .face .eye-left .pupil .white,
+#cartoon .face .eye-right .pupil .white {
   width: 1vmin;
   height: 1vmin;
   background: #fff;
   border-radius: 50%;
+}
+#cartoon .face .eye-left {
+  top: 30%;
+  left: 10%;
+}
+#cartoon .face .eye-left .pupil {
+  bottom: 10%;
+  right: 16%;
+}
+#cartoon .face .eye-left .white {
   top: 18%;
   right: 25%;
 }
-#cartoon .face .eye + .eye {
-  left: auto;
+#cartoon .face .eye-right {
+  top: 30%;
   right: 10%;
-  transform: scaleX(-1) rotate(-10deg);
+}
+#cartoon .face .eye-right .pupil {
+  bottom: 10%;
+  left: 16%;
+}
+#cartoon .face .eye-right .white {
+  top: 18%;
+  left: 25%;
 }
 #cartoon .face .nose {
   width: 20%;
