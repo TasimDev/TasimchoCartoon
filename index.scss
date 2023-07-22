@@ -21,7 +21,7 @@ body {
     }
 
     20% {
-        transform: translateX(6px) translateY(10px) scale(0.95);
+        transform: translateX(.6vmin) translateY(1vmin) scale(0.95);
     }
 
     25%,
@@ -31,7 +31,7 @@ body {
 
     50%,
     60% {
-        transform: translateX(10px) translateY(-40px) scale(0.95);
+        transform: translateX(1vmin) translateY(-4vmin) scale(0.95);
     }
 
     66%,
